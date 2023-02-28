@@ -47,48 +47,63 @@ class _DetailState extends State<Detail> {
                 return GridView.builder(
                     primary: false,
                     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisSpacing: 2,
-                        mainAxisSpacing: 10,
+                        crossAxisSpacing: 10,
+                        mainAxisSpacing: 20,
                         crossAxisCount: 2),
                     itemCount: snapshot.data.length,
                     itemBuilder: (BuildContext context, int index) {
                       return
-                            InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => Ingredients()));
-                              },
-                              child: Container(
-                                width: 200,
-                                margin: EdgeInsets.all(6.0),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  image: DecorationImage(
-                                    image: NetworkImage(snapshot.data[index]['strDrinkThumb']),
-                                    fit: BoxFit.cover,
+                            Stack(
+                             children: [
+                               InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Ingredients()));
+                                },
+                                child: Container(
+                                  width: 200,
+                                  height: 400,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    image: DecorationImage(
+                                      image: NetworkImage(snapshot.data[index]['strDrinkThumb']),
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
-                                ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
+                                child: Column(
 
-                                  Icon(Icons.favorite_border_outlined),
-                                  Text(snapshot.data[index]['idDrink'],style:  TextStyle(color: Colors.white, fontWeight: FontWeight.normal, fontSize: 11),),
-                                ],
-                                ),
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Padding(padding: EdgeInsets.only(top: 140.0)),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
 
-                                  Text(snapshot.data[index]['strDrink'],style:  TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23),),
-                                ],
+                                    Icon(Icons.favorite_border_outlined),
+                                    Text(snapshot.data[index]['idDrink'],style:  TextStyle(color: Colors.white, fontWeight: FontWeight.normal, fontSize: 11),),
+                                  ],
+                                  ),
 
-                                ),
+
+                                  ],
+
+                                  ),
 
                         ),
-                            );
+                      ),
+
+                               Container(
+                                 padding: EdgeInsets.only(top: 170.0),
+                                   child: Text(snapshot.data[index]['strDrink'],style:  TextStyle(color: Colors.white70, fontWeight: FontWeight.normal, fontSize: 21),)),
+
+
+
+                      ],
+
+                      );
+
 
                     }
 

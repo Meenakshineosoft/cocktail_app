@@ -1,16 +1,32 @@
 
 import 'package:carousel_slider/carousel_slider.dart';
+
 import 'package:cocktail_app/screens/detail.dart';
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 
-class Home extends StatelessWidget {
-  const Home({Key? key}) : super (key: key);
+class Home extends StatefulWidget {
+
+  @override
+  HomeState createState() => HomeState();
+
+}
+
+
+class HomeState extends State<Home> {
+
+
+
+  List<String> images = [
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTIZccfNPnqalhrWev-Xo7uBhkor57_rKbkw&usqp=CAU",
+    "https://wallpaperaccess.com/full/2637581.jpg"
+  ];
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        home: Scaffold(
+    return Scaffold(
           body: Container(
             color: Colors.black,
             child:
@@ -19,13 +35,15 @@ class Home extends StatelessWidget {
                   buildSlider(context),
                   buildCategories(context),
                   buildCategorySlider(context),
+                //  buildBottomNavBar(context),
+
 
                 ],
               )
 
           ),
-        )
-    );
+        );
+
   }
 }
 
@@ -33,7 +51,7 @@ class Home extends StatelessWidget {
      return ImageSlideshow(
        indicatorColor: Colors.white,
        indicatorBackgroundColor: Colors.grey,
-       height: 350,
+       height: 400,
 
        onPageChanged: (value) {
          debugPrint('Page changed: $value');
@@ -45,7 +63,7 @@ class Home extends StatelessWidget {
            child: Stack(
              children: [
                Image.network(
-                   "https://www.thecocktaildb.com/images/media/drink/uwstrx1472406058.jpg"),
+                     "https://www.thecocktaildb.com/images/media/drink/uwstrx1472406058.jpg"),
                Icon(Icons.cancel_rounded, color: Colors.black),
                Container(
                  padding: EdgeInsets.only(top: 50, left: 20),
@@ -62,14 +80,20 @@ class Home extends StatelessWidget {
                      fontWeight: FontWeight.normal,
                      fontSize: 25),),
                ),
-               Row(
-                 children: [
-                   Text('Strong', style: TextStyle(
-                       color: Colors.white,
-                       fontWeight: FontWeight.normal,
-                       fontSize: 25
-                   ),),
-                 ],
+               Container(
+                 padding: EdgeInsets.only(top: 140, left: 30),
+                 child: Row(
+                   children: [
+                     Icon(Icons.keyboard_control_outlined, color: Colors.white,),
+                     Text('Strong', style: TextStyle(
+                         color: Colors.white70,
+                         fontWeight: FontWeight.normal,
+                         fontSize: 14
+                     ),),
+                     Icon(Icons.favorite, color: Colors.white),
+                     Text('865', style: TextStyle(color: Colors.white70, fontSize: 14 ),)
+                   ],
+                 ),
                ),
              ],
            ),
@@ -96,6 +120,21 @@ class Home extends StatelessWidget {
                      fontWeight: FontWeight.normal,
                      fontSize: 25),),
                ),
+               Container(
+                 padding: EdgeInsets.only(top: 140, left: 30),
+                 child: Row(
+                   children: [
+                     Icon(Icons.keyboard_control_outlined, color: Colors.white,),
+                     Text('Medium', style: TextStyle(
+                         color: Colors.white70,
+                         fontWeight: FontWeight.normal,
+                         fontSize: 14
+                     ),),
+                     Icon(Icons.favorite, color: Colors.white),
+                     Text('700', style: TextStyle(color: Colors.white70, fontSize: 14 ),)
+                   ],
+                 ),
+               ),
              ],
            ),
          ),
@@ -119,6 +158,21 @@ class Home extends StatelessWidget {
                      color: Colors.white,
                      fontWeight: FontWeight.normal,
                      fontSize: 25),),
+               ),
+               Container(
+                 padding: EdgeInsets.only(top: 140, left: 30),
+                 child: Row(
+                   children: [
+                     Icon(Icons.keyboard_control_outlined, color: Colors.white,),
+                     Text('Strong', style: TextStyle(
+                         color: Colors.white70,
+                         fontWeight: FontWeight.normal,
+                         fontSize: 14
+                     ),),
+                     Icon(Icons.favorite, color: Colors.white),
+                     Text('968', style: TextStyle(color: Colors.white70, fontSize: 14 ),)
+                   ],
+                 ),
                ),
              ],
            ),
@@ -144,6 +198,21 @@ class Home extends StatelessWidget {
                      fontWeight: FontWeight.normal,
                      fontSize: 25),),
                ),
+               Container(
+                 padding: EdgeInsets.only(top: 140, left: 30),
+                 child: Row(
+                   children: [
+                     Icon(Icons.keyboard_control_outlined, color: Colors.white,),
+                     Text('Strong', style: TextStyle(
+                         color: Colors.white70,
+                         fontWeight: FontWeight.normal,
+                         fontSize: 14
+                     ),),
+                     Icon(Icons.favorite, color: Colors.white),
+                     Text('876', style: TextStyle(color: Colors.white70, fontSize: 14 ),)
+                   ],
+                 ),
+               ),
              ],
            ),
          ),
@@ -167,6 +236,21 @@ class Home extends StatelessWidget {
                      color: Colors.white,
                      fontWeight: FontWeight.normal,
                      fontSize: 25),),
+               ),
+               Container(
+                 padding: EdgeInsets.only(top: 140, left: 30),
+                 child: Row(
+                   children: [
+                     Icon(Icons.keyboard_control_outlined, color: Colors.white,),
+                     Text('Medium', style: TextStyle(
+                         color: Colors.white70,
+                         fontWeight: FontWeight.normal,
+                         fontSize: 14
+                     ),),
+                     Icon(Icons.favorite, color: Colors.white),
+                     Text('975', style: TextStyle(color: Colors.white70, fontSize: 14 ),)
+                   ],
+                 ),
                ),
              ],
            ),
@@ -204,12 +288,12 @@ class Home extends StatelessWidget {
      );
    }
 
-   buildCategorySlider(BuildContext context) {
-    return
-        CarouselSlider(
+
+
+
+buildCategorySlider(BuildContext context) {
+       return CarouselSlider(
           items: [
-
-
             InkWell(
               onTap: () {
                 Navigator.push(
@@ -219,7 +303,6 @@ class Home extends StatelessWidget {
               },
               child: Container(
                 width: 200,
-                margin: EdgeInsets.all(6.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8.0),
                   image: DecorationImage(
@@ -242,7 +325,6 @@ class Home extends StatelessWidget {
               },
               child: Container(
                 width: 200,
-                margin: EdgeInsets.all(6.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8.0),
                   image: DecorationImage(
@@ -264,7 +346,6 @@ class Home extends StatelessWidget {
               },
               child: Container(
                 width: 200,
-                margin: EdgeInsets.all(6.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8.0),
                   image: DecorationImage(
@@ -307,7 +388,6 @@ class Home extends StatelessWidget {
               },
               child: Container(
                 width: 200,
-                margin: EdgeInsets.all(6.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8.0),
                   image: DecorationImage(
@@ -328,7 +408,6 @@ class Home extends StatelessWidget {
               },
               child: Container(
                 width: 200,
-                margin: EdgeInsets.all(6.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8.0),
                   image: DecorationImage(
@@ -349,7 +428,6 @@ class Home extends StatelessWidget {
               },
               child: Container(
                 width: 200,
-                margin: EdgeInsets.all(6.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8.0),
                   image: DecorationImage(
@@ -370,7 +448,6 @@ class Home extends StatelessWidget {
               },
               child: Container(
                 width: 200,
-                margin: EdgeInsets.all(6.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8.0),
                   image: DecorationImage(
@@ -391,7 +468,6 @@ class Home extends StatelessWidget {
               },
               child: Container(
                 width: 200,
-                margin: EdgeInsets.all(6.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8.0),
                   image: DecorationImage(
@@ -412,7 +488,6 @@ class Home extends StatelessWidget {
               },
               child: Container(
                 width: 200,
-                margin: EdgeInsets.all(6.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8.0),
                   image: DecorationImage(
@@ -420,7 +495,7 @@ class Home extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                 ),
-                child: Text('Beer',style:  TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23),textAlign: TextAlign.end,),
+                child: Text('Beer',style:  TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23)),
               ),
             ),
 
@@ -433,7 +508,6 @@ class Home extends StatelessWidget {
               },
               child: Container(
                 width: 200,
-                margin: EdgeInsets.all(6.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8.0),
                   image: DecorationImage(
@@ -441,7 +515,7 @@ class Home extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                 ),
-                child: Text('Soft Drink',style:  TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23, ),textAlign: TextAlign.end),
+                child: Text('Soft Drink',style:  TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23, )),
               ),
             ),
 
@@ -449,16 +523,26 @@ class Home extends StatelessWidget {
 
 
           options: CarouselOptions(
-            height: 180.0,
+            height: 200.0,
             enlargeCenterPage: true,
             autoPlay: true,
-            aspectRatio: 16 / 9,
+            aspectRatio: 11 / 9,
             autoPlayCurve: Curves.fastOutSlowIn,
             enableInfiniteScroll: true,
             autoPlayAnimationDuration: Duration(milliseconds: 800),
-            viewportFraction: 0.8,
+            viewportFraction: 0.6,
           ),
         );
 
 
    }
+
+
+
+
+
+
+
+
+
+
