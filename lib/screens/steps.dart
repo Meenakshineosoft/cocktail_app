@@ -32,12 +32,11 @@ class _StepsState extends State<Steps> {
     return Scaffold(
 
       body:
-      Container(
-          child: stepsWidget(),
-          color: Colors.black,
+          Container(
+            color: Colors.black,
+            child: stepsWidget(),
+          ),
 
-
-      ),
     );
   }
 
@@ -45,56 +44,77 @@ class _StepsState extends State<Steps> {
     return FutureBuilder(
         future: response,
         builder: (BuildContext context, AsyncSnapshot snapshot) {
-      if (snapshot.hasData) {
-        return
+          if (snapshot.hasData) {
+            return
 
-          ListView.builder(
-          itemCount: snapshot.data.length,
-          itemBuilder: (BuildContext context, int index) {
-          return
-            Stack(
-          children: [
-            Column(
-          children: [
-            Image.network(snapshot.data[index]['strDrinkThumb']),
-             Padding(padding: EdgeInsets.all(10.0)),
-             Text('Steps', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 19),),
-            Padding(padding: EdgeInsets.all(10.0)),
-                        Text('01' + (snapshot.data[index]['strInstructions']),style: TextStyle(color: Colors.white, fontWeight: FontWeight.normal, fontSize: 14),
-                          ),
+              ListView.builder(
+                  itemCount: snapshot.data.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return
+
+                          Column(
+                            children: [
+                              Image.network(
+                                  snapshot.data[index]['strDrinkThumb']),
+                              Padding(padding: EdgeInsets.all(10.0)),
+                              Text(
+                                'Steps', style: TextStyle(color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 19),),
+                              Padding(padding: EdgeInsets.all(10.0)),
+                              Text(
+                                '01 ' +
+                                    (snapshot.data[index]['strInstructions']),
+                                style: TextStyle(color: Colors.white,
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: 14),
+                              ),
 
 
+                              Padding(padding: EdgeInsets.only(bottom: 10.0)),
 
-                Padding(padding: EdgeInsets.only(bottom: 10.0)),
+                              Text(
+                                '02 ' +
+                                    (snapshot.data[index]['strInstructionsDE']),
+                                style: TextStyle(color: Colors.white,
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: 14),),
 
-                    Text('02' + (snapshot.data[index]['strInstructionsDE']),style: TextStyle(color: Colors.white, fontWeight: FontWeight.normal, fontSize: 14),),
-
-                Padding(padding: EdgeInsets.only(bottom: 10.0)),
+                              Padding(padding: EdgeInsets.only(bottom: 10.0)),
 
 
-                  Text('03' + (snapshot.data[index]['strInstructionsIT']),style: TextStyle(color: Colors.white, fontWeight: FontWeight.normal, fontSize: 14),),
+                              Text(
+                                '03 ' +
+                                    (snapshot.data[index]['strInstructionsIT']),
+                                style: TextStyle(color: Colors.white,
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: 14),),
 
-                Padding(padding: EdgeInsets.only(bottom: 10.0)),
+                              Padding(padding: EdgeInsets.only(bottom: 10.0)),
 
-              ],
 
-            )
-           ],
-
-          );
-          },
-          );
-
-          } else {
-          return Center(
-          child: CircularProgressIndicator(),
-          );
+                        ],
+                          );
+                  }
+              );
           }
-        },
+
+          else {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        }
     );
   }
+  }
 
-      }
+
+
+
+
+
+
 
 
 

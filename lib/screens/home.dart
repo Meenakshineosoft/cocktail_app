@@ -14,15 +14,7 @@ class Home extends StatefulWidget {
 
 }
 
-
 class HomeState extends State<Home> {
-
-
-
-  List<String> images = [
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTIZccfNPnqalhrWev-Xo7uBhkor57_rKbkw&usqp=CAU",
-    "https://wallpaperaccess.com/full/2637581.jpg"
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -35,8 +27,6 @@ class HomeState extends State<Home> {
                   buildSlider(context),
                   buildCategories(context),
                   buildCategorySlider(context),
-                //  buildBottomNavBar(context),
-
 
                 ],
               )
@@ -258,9 +248,6 @@ class HomeState extends State<Home> {
        ],
      );
    }
-
-
-
 
    buildCategories(BuildContext context) {
      return  Container(
