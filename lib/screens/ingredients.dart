@@ -25,7 +25,6 @@ class Ingredients extends StatelessWidget {
     ),
            ),
 
-
            Row(
            crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -59,10 +58,10 @@ class Ingredients extends StatelessWidget {
             child: Column(
              mainAxisAlignment: MainAxisAlignment.end,
                children: [
-              Padding(padding: EdgeInsets.only(bottom: 90.0)),
-              Text('Garnish:',style:  TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14), textAlign: TextAlign.start,),
-               Padding(padding: EdgeInsets.only(bottom: 10.0)),
-                Text('Mint Spring',style:  TextStyle(color: Colors.white, fontWeight: FontWeight.normal, fontSize: 11), textAlign: TextAlign.start,),
+                 Padding(padding: EdgeInsets.only(bottom: 90.0)),
+                 Text('Garnish:',style:  TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14), textAlign: TextAlign.start,),
+                 Padding(padding: EdgeInsets.only(bottom: 10.0)),
+                 Text('Mint Spring',style:  TextStyle(color: Colors.white, fontWeight: FontWeight.normal, fontSize: 11), textAlign: TextAlign.start,),
                  Padding(padding: EdgeInsets.only(bottom: 10.0)),
                  Text('Lime Wheel',style:  TextStyle(color: Colors.white, fontWeight: FontWeight.normal, fontSize: 11), textAlign: TextAlign.start,),
                  Padding(padding: EdgeInsets.only(bottom: 10.0)),

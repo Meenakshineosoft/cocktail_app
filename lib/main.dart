@@ -1,9 +1,8 @@
 
 
-import 'package:cocktail_app/screens/detail.dart';
+
 import 'package:cocktail_app/screens/home.dart';
-import 'package:cocktail_app/screens/ingredients.dart';
-import 'package:cocktail_app/screens/steps.dart';
+
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -24,16 +23,6 @@ class MyApp extends StatelessWidget {
       MaterialApp(
             debugShowCheckedModeBanner: false,
               home: Home(),
-            initialRoute: "/",
-            routes: {
-
-          "/first": (final context) => Detail(),
-
-          "/second": (final context) => Ingredients(),
-              "/third": (final context) => Steps(),
-
-
-        },
 
     );
   }

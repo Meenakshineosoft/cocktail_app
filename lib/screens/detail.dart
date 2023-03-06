@@ -1,6 +1,7 @@
 
 
 import 'dart:convert';
+
 import 'package:cocktail_app/screens/ingredients.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
@@ -13,6 +14,9 @@ class Detail extends StatefulWidget {
 }
 
 class _DetailState extends State<Detail> {
+
+
+
   late var response;
 
   Future<List<dynamic>> fetchDetails() async {
@@ -119,6 +123,8 @@ class _DetailState extends State<Detail> {
     );
 
   }
+
+
 }
 
 

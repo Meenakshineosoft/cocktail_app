@@ -275,9 +275,6 @@ class HomeState extends State<Home> {
      );
    }
 
-
-
-
 buildCategorySlider(BuildContext context) {
        return CarouselSlider(
           items: [
@@ -300,8 +297,6 @@ buildCategorySlider(BuildContext context) {
                 child: Text('Ordinary Drink', style:  TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23),),
               ),
             ),
-
-
 
             InkWell(
               onTap: () {
